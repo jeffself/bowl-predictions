@@ -1,0 +1,9 @@
+{% if school_list %}
+  <ul>
+    {% for school in school_list %}
+      <li><a href="/school/{{ school.id }}/">{{ school.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No schools are available.</p>
+{% endif %}
