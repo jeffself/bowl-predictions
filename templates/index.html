@@ -1,0 +1,9 @@
+{% if bowl_list %}
+  <ul>
+    {% for bowl in bowl_list %}
+      <li><a href="/bowls/{{ bowl.id }}/">{{ bowl.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No bowls are available.</p>
+{% endif %}

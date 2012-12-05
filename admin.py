@@ -19,9 +19,8 @@ class SchoolAdmin(admin.ModelAdmin):
 
 class GameAdmin(admin.ModelAdmin):
     list_display = ('season','game_date', 'bowl', 'visitor_school', \
-                    'visitor_school_predicted_score', 'visitor_school_score', \
-                    'home_school', 'home_school_predicted_score', \
-                    'home_school_score')
+                    'visitor_school_score', \
+                    'home_school', 'home_school_score')
     ordering = ('game_date',)
 
 admin.site.register(Bowl, BowlAdmin)
