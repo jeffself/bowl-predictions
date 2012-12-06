@@ -1,0 +1,15 @@
+{% if game_list %}
+  <ul>
+    {% for game in game_list %}
+      <li><a href="/game/{{ game.id }}/">{{ game.game_date }} {{ game.bowl }}</a>
+        {% if game.visitor_predicted_score > game.home_predicted_score %}
+            <span>{{ game.visitor_school }} {{ game.visitor_predicted_score }}</span> <span>{{ game.home_school }} {{ game.home_predicted_score }}</span>
+        {% else %}
+            <span>{{ game.home_school }} {{ game.home_predicted_score }}</span> <span>{{ game.visitor_school }} {{ game.visitor_predicted_score }}</span>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No games are available.</p>
+{% endif %}

@@ -65,18 +65,18 @@ class Game(models.Model):
     def home_predicted_score(self):
         h = self.home_school
         v = self.visitor_school
-        return ((h.pf_against_fbs / float(h.games_against_fbs) - \
+        return int(round(((h.pf_against_fbs / float(h.games_against_fbs) - \
                 float(v.defense_rating)) + \
                (v.pa_against_fbs / float(v.games_against_fbs) + \
-                float(h.offense_rating))) / 2.0
+                float(h.offense_rating))) / 2.0))
 
     def visitor_predicted_score(self):
         h = self.home_school
         v = self.visitor_school
-        return ((v.pf_against_fbs / float(v.games_against_fbs) - \
+        return int(round(((v.pf_against_fbs / float(v.games_against_fbs) - \
                 float(h.defense_rating)) + \
                (h.pa_against_fbs / float(h.games_against_fbs) + \
-                float(v.offense_rating))) / 2.0
+                float(v.offense_rating))) / 2.0))
 
     class Meta:
         ordering = ('game_date', 'bowl')
