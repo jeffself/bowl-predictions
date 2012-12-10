@@ -1,24 +1,38 @@
 <!DOCTYPE html>
+{% load bootstrap_toolkit %}
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <style type="text/css">
-        body {
-            padding-top: 60px;
-        }
-    </style>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-    {% block extra_head %}{% endblock %}
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  {% bootstrap_stylesheet_tag %}
+  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css">
+  <style type="text/css">
+    body {
+      padding-top: 60px;
+    }
+  </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+  {% bootstrap_javascript_tag "dropdown" %}
+  {% block extra_head %}{% endblock %}
 </head>
 
 <body>
-
-<div class="container">
-    <ul class="nav">
-        <li><a href="{% url home %}">Home</a></li>
+<div class="navbar navbar-fixed-top">
+  <div class="container-fluid">
+    <ul class="nav nav-pills">
+      <a class="brand" href="#">Bowl Predictions</a>
+      <li><a href="/bowl"></a>Bowls</li>
+      <li><a href="/conference"></a>Conferences</li>
+      <li><a href="/school"></a>Schools</li>
+      <li><a href="/game"></a>Games</li>
     </ul>
+  </div>
+</div>
+<div class="container-fluid">
+  <div id="content" class="flex">
+    {% block content %}{% endblock %}
+  </div>
 </div>
 
 </body>

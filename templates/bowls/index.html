@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 {% if bowl_list %}
   <ul>
     {% for bowl in bowl_list %}
@@ -7,3 +10,4 @@
 {% else %}
   <p>No bowls are available.</p>
 {% endif %}
+{% endblock %}

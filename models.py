@@ -59,6 +59,7 @@ class Game(models.Model):
                                     blank=True, null=True)
     home_school_score = models.IntegerField(null=True, blank=True)
 
+
     def __unicode__(self):
         return "%s %s" % (self.season, self.bowl)
 

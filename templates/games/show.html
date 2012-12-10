@@ -1,5 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h2>{{ game.bowl }}</h2>
 <h3>{{ game.game_date }}</h3>
 <div id="visitor_school">{{ game.visitor_school }}</div> vs. <div id="home_school">{{ game.home_school }}</div>
 <div id="visitor_school_predicted_score">{{ game.visitor_predicted_score }}</div>
 <div id="home_school_predicted_score">{{ game.home_predicted_score }}</div>
+{% endblock %}

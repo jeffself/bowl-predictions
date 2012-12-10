@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 {% if school_list %}
   <ul>
     {% for school in school_list %}
@@ -7,3 +10,4 @@
 {% else %}
   <p>No schools are available.</p>
 {% endif %}
+{% endblock %}

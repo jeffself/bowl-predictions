@@ -1,6 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
 <h2>{{ school.name }} {{ school.mascot }}</h2>
 <div id='offense_rating'>Offensive Rating: {{ school.offense_rating }}</div>
 <div id='defense_rating'>Defensive Rating: {{ school.defense_rating }}</div>
 <div id='wins'>Wins: {{ school.wins }}</div>
 <div id='losses'>Losses: {{ school.losses }}</div>
 <div id='power_rating'>Power Rating: {{ school.power_rating }}</div>
+{% endblock %}

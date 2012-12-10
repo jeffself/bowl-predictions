@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 {% if conference_list %}
   <ul>
     {% for conference in conference_list %}
@@ -7,3 +10,4 @@
 {% else %}
   <p>No conferences are available.</p>
 {% endif %}
+{% endblock %}
