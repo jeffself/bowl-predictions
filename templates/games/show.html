@@ -6,4 +6,9 @@
 <div id="visitor_school">{{ game.visitor_school }}</div> vs. <div id="home_school">{{ game.home_school }}</div>
 <div id="visitor_school_predicted_score">{{ game.visitor_predicted_score }}</div>
 <div id="home_school_predicted_score">{{ game.home_predicted_score }}</div>
+{% if game.visitor_school.power_rating > game.home_school.power_rating %}
+    <div id="expected_outcome">{{ game.visitor_school.name}}: {{ game.expected_outcome }}</div>
+{% else %}
+    <div id="expected_outcome">{{ game.home_school.name}}: {{ game.expected_outcome }}</div>
+{% endif %}
 {% endblock %}

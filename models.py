@@ -79,5 +79,14 @@ class Game(models.Model):
                (h.pa_against_fbs / float(h.games_against_fbs) + \
                 float(v.offense_rating))) / 2.0))
 
+    def expected_outcome(self):
+        if self.visitor_school.power_rating > self.home_school.power_rating:
+            high_rating = self.visitor_school.power_rating
+            low_rating = self.home_school.power_rating
+        else:
+            high_rating = self.home_school.power_rating
+            low_rating = self.visitor_school.power_rating
+        return "{0:.1f}".format(( 1 / (1 + pow(10, (low_rating - high_rating) / 10))) * 100)
+
     class Meta:
         ordering = ('game_date', 'bowl')
