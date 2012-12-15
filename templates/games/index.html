@@ -7,9 +7,13 @@
       <li><a href="/game/{{ game.id }}/">{{ game.game_date }} {{ game.bowl }}</a>
         {% if game.visitor_predicted_score > game.home_predicted_score %}
             <span>{{ game.visitor_school }} {{ game.visitor_predicted_score }}</span> <span>{{ game.home_school }} {{ game.home_predicted_score }}</span>
+            <span>{{ game.visitor_school_score }} - {{ game.home_school_score }}</span>
         {% else %}
             <span>{{ game.home_school }} {{ game.home_predicted_score }}</span> <span>{{ game.visitor_school }} {{ game.visitor_predicted_score }}</span>
+            <span>{{ game.home_school_score }} - {{ game.visitor_school_score }}</span>
         {% endif %}
+        <span>{{ game.predicted_outcome }}</span>
+        <span>{{ game.outcome_differential }}</span>
       </li>
     {% endfor %}
   </ul>

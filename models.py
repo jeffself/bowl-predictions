@@ -88,5 +88,31 @@ class Game(models.Model):
             low_rating = self.visitor_school.power_rating
         return "{0:.1f}".format(( 1 / (1 + pow(10, (low_rating - high_rating) / 10))) * 100)
 
+    def predicted_outcome(self):
+        vps = self.visitor_predicted_score()
+        hps = self.home_predicted_score()
+        vss = self.visitor_school_score
+        hss = self.home_school_score
+
+        if vps > hps:
+            if vss > hss:
+                return 1
+            else:
+                return 0
+        else:
+            if hss > vss:
+                return 1
+            else:
+                return 0
+
+
+    def outcome_differential(self):
+        vss = self.visitor_school_score
+        vps = self.visitor_predicted_score()
+        hss = self.home_school_score
+        hps = self.home_predicted_score()
+
+        return vss + hss - vps - hps
+
     class Meta:
         ordering = ('game_date', 'bowl')
