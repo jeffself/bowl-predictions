@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.localflavor.us.models import USStateField
+import math
 
 
 class Bowl(models.Model):
@@ -112,7 +113,7 @@ class Game(models.Model):
         hss = self.home_school_score
         hps = self.home_predicted_score()
 
-        return vss + hss - vps - hps
+        return int(math.fabs(vss - vps) + math.fabs(hss - hps))
 
     class Meta:
         ordering = ('game_date', 'bowl')
