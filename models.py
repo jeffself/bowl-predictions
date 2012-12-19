@@ -106,6 +106,22 @@ class Game(models.Model):
             else:
                 return 0
 
+    def rankings_predicted_outcome(self):
+        vranking = self.visitor_school.power_rating
+        hranking = self.home_school.power_rating
+        vss = self.visitor_school_score
+        hss = self.home_school_score
+
+        if vranking > hranking:
+            if vss > hss:
+                return 1
+            else:
+                return 0
+        else:
+            if hss > vss:
+                return 1
+            else:
+                return 0
 
     def outcome_differential(self):
         vss = self.visitor_school_score
