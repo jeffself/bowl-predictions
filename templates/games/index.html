@@ -2,22 +2,48 @@
 
 {% block content %}
 {% if game_list %}
-  <ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Game</th>
+        <th>Visitor</th>
+        <th>Score</th>
+        <th>Home</th>
+        <th>Score</th>
+        <th>Final</th>
+        <th>Prediction Result</th>
+        <th>Rankings Prediction Result</th>
+        <th>Point Differential</th>
+        <th>Margin Differential</th>
+      </tr>
+    </thead>
+    <tbody>
     {% for game in game_list %}
-      <li><a href="/game/{{ game.id }}/">{{ game.game_date }} {{ game.bowl }}</a>
+      <tr>
+        <td><a href="/game/{{ game.id }}/">{{ game.game_date }}</td>
+        <td>{{ game.bowl }}</a></td>
         {% if game.visitor_predicted_score > game.home_predicted_score %}
-            <span>{{ game.visitor_school }} {{ game.visitor_predicted_score }}</span> <span>{{ game.home_school }} {{ game.home_predicted_score }}</span>
-            <span>{{ game.visitor_school_score }} - {{ game.home_school_score }}</span>
+        <td>{{ game.visitor_school }}</td>
+        <td>{{ game.visitor_predicted_score }}</td>
+        <td>{{ game.home_school }}</td>
+        <td>{{ game.home_predicted_score }}</td>
+        <td>{{ game.visitor_school_score }} - {{ game.home_school_score }}</td>
         {% else %}
-            <span>{{ game.home_school }} {{ game.home_predicted_score }}</span> <span>{{ game.visitor_school }} {{ game.visitor_predicted_score }}</span>
-            <span>{{ game.home_school_score }} - {{ game.visitor_school_score }}</span>
+        <td>{{ game.home_school }}</td>
+        <td>{{ game.home_predicted_score }}</td>
+        <td>{{ game.visitor_school }}</td>
+        <td>{{ game.visitor_predicted_score }}</td>
+        <td>{{ game.home_school_score }} - {{ game.visitor_school_score }}</td>
         {% endif %}
-        <span>{{ game.predicted_outcome }}</span>
-        <span>{{ game.rankings_predicted_outcome }}</span>
-        <span>{{ game.outcome_differential }}</span>
-      </li>
+        <td>{{ game.predicted_outcome }}</td>
+        <td>{{ game.rankings_predicted_outcome }}</td>
+        <td>{{ game.outcome_differential }}</td>
+        <td>{{ game.margin_differential }}</td>
+      </tr>
     {% endfor %}
-  </ul>
+    </tbody>
+  </table>
 {% else %}
   <p>No games are available.</p>
 {% endif %}
