@@ -131,5 +131,14 @@ class Game(models.Model):
 
         return int(math.fabs(vss - vps) + math.fabs(hss - hps))
 
+    def margin_differential(self):
+        vss = self.visitor_school_score
+        vps = self.visitor_predicted_score()
+        hss = self.home_school_score
+        hps = self.home_predicted_score()
+
+        diff = (vss - hss) - (vps - hps)
+        return int(math.fabs(diff))
+
     class Meta:
         ordering = ('game_date', 'bowl')
